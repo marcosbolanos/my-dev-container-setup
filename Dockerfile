@@ -1,8 +1,8 @@
 FROM ubuntu:22.04
 
-# Install conda dependencies
+# Install conda dependencies and general stuff
 RUN apt-get update \ 
-    && apt-get install -y wget curl bzip2 git \ 
+    && apt-get install -y wget curl bzip2 git nano sudo \ 
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install Miniconda
