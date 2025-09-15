@@ -38,7 +38,8 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN mkdir -p $PNPM_HOME && pnpm config set global-bin-dir $PNPM_HOME
 
 # Create a non-root user
-RUN useradd -m devuser
+RUN useradd -m devuser \
+   && echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Install starship
 RUN curl -sS https://starship.rs/install.sh | sh -s -- --yes \
